@@ -106,10 +106,9 @@ angular.module('MyApp')
             // console.log(x);
             console.log("twitter");
             // var url = 'https://twitter.com/intent/tweet?url=https://vast-scrubland-42486.herokuapp.com/#/polldetail/' + $scope.poll.id;
-            var url = 'https://twitter.com/intent/tweet?url=https://vast-scrubland-42486.herokuapp.com/polldetail/'+ $scope.poll.id;
+            var url = 'https://twitter.com/intent/tweet?url=https://vast-scrubland-42486.herokuapp.com/polldetail/' + $scope.poll.id;
             window.open(url, '_blank');
         }
-
 
         $scope.update = function() {
             $location.path('/update/' + $routeParams.idPoll);
