@@ -45,7 +45,7 @@ userSchema.methods.comparePassword = function(candidatePassword, cb) {
 
 var User = mongoose.model('User', userSchema);
 var Poll = mongoose.model('Poll', pollSchema);
-mongoose.connect(mongoConfig.url);
+mongoose.connect(process.env.MONGOLAB_URI || 'mongodb://localhost:27017/myvoteapp');
 
 passport.serializeUser(function(user, done) {
     done(null, user.id);
@@ -92,7 +92,10 @@ app.post('/api/newpoll', function(req, res) {
         .sort({ id: 'descending' })
         .exec(function(err, docs) {
             if (err) throw err;
-            var idPoll = docs[0].id + 1;
+            var idPoll = 1;
+            if (docs.length !== 0) {
+                idPoll = docs[0].id + 1;
+            }
             var poll = new Poll({
                 id: idPoll,
                 email: req.body.email,
@@ -150,7 +153,7 @@ app.post('/api/getuserpoll', function(req, res) {
 
 app.post('/api/updatepoll', function(req, res) {
     console.log(req.body);
-    Poll.update({ id: req.body.id }, { $set: { option:req.body.options, vote: req.body.vote } }, function(err, data) {
+    Poll.update({ id: req.body.id }, { $set: { option: req.body.options, vote: req.body.vote } }, function(err, data) {
         if (err) throw err;
         res.send(200);
     });
