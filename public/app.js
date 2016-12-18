@@ -1,6 +1,6 @@
 angular.module('MyApp', ['ngCookies', 'ngResource', 'ngMessages', 'ngRoute', 'mgcrea.ngStrap'])
     .config(['$locationProvider', '$routeProvider', function($locationProvider, $routeProvider) {
-        $locationProvider.html5Mode(true);
+        // $locationProvider.html5Mode(true);
         $routeProvider
             .when('/', {
                 templateUrl: 'views/home.html',
@@ -19,6 +19,10 @@ angular.module('MyApp', ['ngCookies', 'ngResource', 'ngMessages', 'ngRoute', 'mg
                 controller: 'NewpollCtrl'
             })
             .when('/polldetail/:idPoll', {
+                templateUrl: 'views/polldetail.html',
+                controller: 'PollDetailCtrl'
+            })
+            .when('/#/polldetail/:idPoll', {
                 templateUrl: 'views/polldetail.html',
                 controller: 'PollDetailCtrl'
             })
