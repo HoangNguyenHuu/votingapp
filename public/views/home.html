@@ -1,0 +1,22 @@
+<div class="row">
+    <div class="col-sm-2"></div>
+    <div class="container col-sm-8">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                List Polls
+            </div>
+            <ul class="list-group alt">
+                <li class="list-group-item" ng-repeat="item in polls">
+                    <div class="media">
+                        <span class="pull-left thumb-md"><img src="images/topic.png" alt="..." class="img-circle"></span>
+                        <div class="media-body">
+                            <div><a href ng-click="getDetail(item.id)"><b>{{item.title}}</b></a></div>
+                            <small class="text-muted">{{item.email}}</small>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="col-sm-2"></div>
+</div>
