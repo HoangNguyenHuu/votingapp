@@ -106,7 +106,7 @@ angular.module('MyApp')
             // console.log(x);
             console.log("twitter");
             // var url = 'https://twitter.com/intent/tweet?url=https://vast-scrubland-42486.herokuapp.com/#/polldetail/' + $scope.poll.id;
-            var url = 'https://twitter.com/intent/tweet?url=https://vast-scrubland-42486.herokuapp.com/#/polldetail/' + $scope.poll.id + '&text=' + $scope.poll.title + ' &original_referer=https://vast-scrubland-42486.herokuapp.com/#/polldetail/' + $scope.poll.id;
+            var url = 'https://twitter.com/intent/tweet?url=https://vast-scrubland-42486.herokuapp.com/polldetail/'+ $scope.poll.id;
             window.open(url, '_blank');
         }
 
